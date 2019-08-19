@@ -8,8 +8,8 @@ title: "oroques.dev"
 title_separator: "|"
 name: "Olivier Roques"
 description: "My personal website."
-url: # "https://oroques.dev"
-repository: # "oroques/oroques.dev"
+url: "https://oroques.dev"
+repository: "oroques/oroques.dev"
 breadcrumbs: false
 breadcrumb_home_label: "Home"
 breadcrumb_separator: "/"
@@ -21,8 +21,8 @@ search_provider: lunr
 # Site Author
 author:
   name: "Olivier Roques"
-  avatar: # TODO
-  bio: # TODO
+  avatar: "/assets/images/bio-photo.jpg"
+  bio: "I'm a MSc student in Network & System Security."
   location: "Paris, France"
   email:
   links:
