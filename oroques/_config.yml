@@ -1,6 +1,6 @@
 # Theme
 theme: "minimal-mistakes-jekyll"
-minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: "contrast"
 
 # Site Settings
 locale: "en-US"
@@ -28,7 +28,7 @@ author:
   links:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/olivier-roques/"
+      url: "https://www.linkedin.com/in/olivier-roques"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ojroques"
@@ -74,8 +74,8 @@ exclude:
   - Rakefile
   - README
   - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
+  - /docs
+  - /test
 keep_files:
   - .git
   - .svn
@@ -144,3 +144,6 @@ defaults:
       comments: false
       share: false
       related: false
+      toc: false
+      toc_label: "Contents"
+      toc_icon: "bars"
