@@ -104,6 +104,7 @@
                             echo '{className: "dt-center dt-nowrap"},';
                         } ?>
                     ],
+                    order: [[5, "desc"], [1, "asc"]],
                     language: {
                         info: "_TOTAL_ out of _MAX_ movies.",
                         search: "Search:",
