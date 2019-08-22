@@ -1,7 +1,7 @@
 ---
 permalink: /projects/
 date: 2019-08-22
-title: "Projects by Year"
+title: "Projects"
 toc: true
 ---
 
