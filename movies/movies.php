@@ -10,11 +10,14 @@
         <meta name="description" content="List of movies seen">
         <meta name="author" content="Olivier Roques">
 
-        <link rel="stylesheet" href="style.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!-- DataTables CSS -->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
@@ -49,7 +52,7 @@
                     <p>
                     This page presents the list of all the films I have seen since July 2012.
                     <?php if ($full) {
-                        echo "Movies without \"seen date\" are some movies I have watched before the creation of this list.";
+                        echo "</br>Movies without \"seen date\" are some movies I have watched before the creation of this list.";
                     } ?>
                     </p>
                 </div>

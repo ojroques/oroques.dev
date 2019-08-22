@@ -1,20 +1,24 @@
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
 .note1 {
-	font-size: 1.2em;
-	color: #D91E18;
+    font-size: 1.2em;
+    color: #D91E18;
 }
 .note2 {
-	font-size: 1.2em;
-	color: #F39C12;
+    font-size: 1.2em;
+    color: #F39C12;
 }
 .note3 {
-	font-size: 1.2em;
-	color: #663399;
+    font-size: 1.2em;
+    color: #663399;
 }
 .note4 {
-	font-size: 1.2em;
-	color: #26A65B;
+    font-size: 1.2em;
+    color: #26A65B;
 }
 .note5 {
-	font-size: 1.2em;
-	color: #22A7F0;
+    font-size: 1.2em;
+    color: #22A7F0;
 }

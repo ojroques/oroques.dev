@@ -4,6 +4,14 @@
 
 @charset "utf-8";
 
+$serif: 'Merriweather', 'Noto Serif', serif;
+$sans-serif: 'Poppins', 'Open Sans', Arial, sans-serif;
+$monospace: 'PT Mono', Consolas, monospace;
+
+$global-font-family: $serif;
+$header-font-family: $serif;
+$caption-font-family: $serif;
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
@@ -11,18 +19,18 @@ html {
     /* apply a natural box layout model to all elements */
     box-sizing: border-box;
     background-color: $background-color;
-    font-size: 12px;
+    font-size: 10px;
 
     @include breakpoint($medium) {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     @include breakpoint($large) {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     @include breakpoint($x-large) {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     -webkit-text-size-adjust: 100%;
