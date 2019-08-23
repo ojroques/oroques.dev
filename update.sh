@@ -1,6 +1,7 @@
 #!/bin/bash
 
-CUR_DIR=$(dirname $0)
-cd $CUR_DIR/oroques
+SCRIPT_DIR=$(dirname $0)
+cd $SCRIPT_DIR/oroques
+
 bundle install
 bundle update

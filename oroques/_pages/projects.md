@@ -20,7 +20,7 @@ My virtual private server running Debian 10. This VPS acts as:
 * Git server (Gitea) accessible [here](https://git.oroques.dev/)
 * Web server and Proxy (Nginx)
 * SQL database (MySQL and phpMyAdmin)
-* VPN server (Streisand)
+* VPN server ([Streisand](https://github.com/StreisandEffect/streisand))
 
 
 ## 2018
