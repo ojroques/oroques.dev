@@ -15,6 +15,10 @@ $caption-font-family: $serif;
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
+a {
+    text-decoration: none;
+}
+
 html {
     /* apply a natural box layout model to all elements */
     box-sizing: border-box;
