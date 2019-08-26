@@ -5,11 +5,11 @@
 @charset "utf-8";
 
 $serif: 'Merriweather', 'Noto Serif', serif;
-$sans-serif: 'Poppins', 'Open Sans', Arial, sans-serif;
-$monospace: 'PT Mono', Consolas, monospace;
+$sans-serif: 'Noto Sans', Arial, sans-serif;
+$monospace: 'Roboto Mono', monospace;
 
-$global-font-family: $serif;
-$header-font-family: $serif;
+$global-font-family: $sans-serif;
+$header-font-family: $sans-serif;
 $caption-font-family: $serif;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin

@@ -1,6 +1,6 @@
 # Theme
 theme: "minimal-mistakes-jekyll"
-minimal_mistakes_skin: "contrast"
+minimal_mistakes_skin: "default"
 
 # Site Settings
 locale: "en-US"
