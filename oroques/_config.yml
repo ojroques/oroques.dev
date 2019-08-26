@@ -9,7 +9,7 @@ title_separator: "|"
 name: "Olivier Roques"
 description: "My personal website."
 url: "https://oroques.dev"
-repository: "oroques/oroques.dev"
+repository: "ojroques/oroques.dev"
 breadcrumbs: false
 breadcrumb_home_label: "Home"
 breadcrumb_separator: "/"
@@ -34,7 +34,7 @@ author:
       url: "https://github.com/ojroques"
     - label: "Git Server"
       icon: "fab fa-fw fa-git"
-      url: "https://git.oroques.dev/"
+      url: "https://git.oroques.dev"
 
 # Site Footer
 footer:

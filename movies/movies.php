@@ -50,7 +50,7 @@
             <div class="row justify-content-center">
                 <div class="col-10">
                     <p>
-                    This page presents the list of all the films I have seen since July 2012.
+                    This page contains the list of all the films I have seen since July 2012.
                     <?php if ($full) {
                         echo "</br>Movies without \"seen date\" are some movies I have watched before the creation of this list.";
                     } ?>
