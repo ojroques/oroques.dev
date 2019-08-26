@@ -1,5 +1,5 @@
 <?php
-require 'credentials.php';  // include database credentials
+require '../credentials.php';
 $cell = " <td>%s</td> ";
 $months = array(
     '00' => '',
