@@ -1,6 +1,6 @@
 ---
 permalink: /projects/
-date: 2019-08-22
+date: 2019-08-27
 title: "Projects"
 toc: true
 ---
@@ -63,7 +63,13 @@ A graphical maze solver in Java that implements [Dijkstra's algorithm](https://e
 ### [Prey-Predator Cellular Automaton](https://github.com/ojroques/TIPE)
 A graphical cellular automaton in Python simulating the evolution of a prey-predator system according to [Lotka-Volterra equations](https://en.wikipedia.org/wiki/Lotka–Volterra_equations). The repository is in French.
 
+
 ## 2014
 
 ### [Conway's Game of Life]({% link assets/files/game_of_life.zip %}) (.zip)
 The [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) implemented with a graphical interface in Python.
+
+## 2012
+
+### [Movie Database](https://movies.oroques.dev)
+A regularly updated SQL database of all the movies I've seen since July 2012.

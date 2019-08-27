@@ -9,4 +9,4 @@ You'll find on this website [notes]({% link _pages/notes.md %}) I've written -- 
 
 My resume is available [here]({% link _pages/resume.md %}). You can find me on [LinkedIn](https://www.linkedin.com/in/olivier-roques) or see my projects on my [GitHub](https://github.com/ojroques) profile.
 
-I am also a big movie fan and I'm maintaining a list of all the films I've seen since 2012, available [here](https://movies.oroques.dev).
+This domain has two subdomains: [git.oroques.dev](https://git.oroques.dev) which hosts my personal git server and [movies.oroques.dev](https://movies.oroques.dev) which contains a list of movies I've seen.

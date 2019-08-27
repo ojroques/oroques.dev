@@ -1,6 +1,6 @@
 ---
 permalink: /notes/
-date: 2019-08-22
+date: 2019-08-27
 title: "Notes"
 toc: true
 ---
@@ -23,9 +23,6 @@ Notes from the *Information and Coding Theory* course at Imperial College London
 
 
 ## 2017
-
-### [The Evolution of Digital Technology in Cinema]({% link assets/files/pace.pdf %}) (French)
-This is an essay for a writing course at Telecom ParisTech. The essay examines the links between cinema and technology. It starts with a brief history of digital cameras and how they have been used, followed by personal observations on how technological advances have influenced cinema through the analysis of a few movies.
 
 ### [Probability Theory]({% link assets/files/probability.pdf %}) (French)
 Notes from the *Probability Theory* course at Telecom Paris.
