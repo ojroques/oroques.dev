@@ -26,6 +26,9 @@ author:
   location: "Paris, France"
   email:
   links:
+    - label: "olivier@oroques.dev"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:olivier@oroques.dev"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/olivier-roques"
@@ -39,6 +42,9 @@ author:
 # Site Footer
 footer:
   links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:olivier@oroques.dev"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/olivier-roques"
