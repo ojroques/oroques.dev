@@ -29,9 +29,8 @@ MOVIES_SRC=$TMP_GIT_CLONE/movies
 MOVIES_DST=$WWW/movies
 
 rm -rf $MOVIES_DST
-rm -f $WWW/credentials.php
 cp -r $MOVIES_SRC $MOVIES_DST
-mv $MOVIES_DST/credentials.php $WWW
+mv -n $MOVIES_DST/credentials.php $WWW
 
 
 #################### cleaning  ###############################
