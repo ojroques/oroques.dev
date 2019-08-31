@@ -29,15 +29,12 @@ author:
     - label: "olivier@oroques.dev"
       icon: "fas fa-fw fa-envelope"
       url: "mailto:olivier@oroques.dev"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/olivier-roques"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ojroques"
-    - label: "Git Server"
-      icon: "fab fa-fw fa-git"
-      url: "https://git.oroques.dev"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/olivier-roques"
 
 # Site Footer
 footer:
@@ -45,12 +42,12 @@ footer:
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
       url: "mailto:olivier@oroques.dev"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/olivier-roques"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ojroques"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/olivier-roques"
 
 # Reading Files
 include:
