@@ -17,7 +17,7 @@ This smart contract implements a secure Rock-Paper-Scissors game in Solidity, re
 
 ### [Virtual Private Server](https://github.com/ojroques/privateserver)
 My virtual private server running Debian 10. This VPS acts as:
-* Git server (Gitea) accessible [here](https://git.oroques.dev/)
+* Git server (Gitea) accessible [here](https://git.oroques.dev/olivier)
 * Web server and Proxy (Nginx)
 * SQL database (MySQL and phpMyAdmin)
 * VPN server ([Streisand](https://github.com/StreisandEffect/streisand))
