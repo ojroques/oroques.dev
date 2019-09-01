@@ -34,5 +34,5 @@ mv -n $MOVIES_DST/credentials.php $WWW
 
 
 #################### cleaning  ###############################
-rm -rf $TMP_GIT_CLONE
+rm -rf $GIT_USER/tmp
 exit

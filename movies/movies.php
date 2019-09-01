@@ -52,7 +52,7 @@
                     <p>
                     This page contains the list of all the films I have seen since July 2012. The data come from a SQL database that has been regularly updated since then. Some columns have deliberatly been removed.
                     <?php if ($full) {
-                        echo "</br>Movies without \"seen date\" are some movies I have watched before the creation of this list.";
+                        echo "</br>Entries without <q>seen date</q> are movies I have watched before the creation of this list.";
                     } ?>
                     </p>
                 </div>
