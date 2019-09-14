@@ -10,7 +10,7 @@ Most of the projects listed here can also be found on my [GitHub](https://github
 ## 2019
 
 ### [TLS Malware Detection](https://github.com/ojroques/tls-malware-detection)
-My MSc project for the [MSc in Computing (Security and Reliability)](http://www.imperial.ac.uk/computing/prospective-students/courses/pg/msc-specialist-degrees/sr/) of Imperial College London was on the detection of malware in TLS traffic. It was supported by [Lastline](https://www.lastline.com), a security company based in the US. My supervisors were [Sergio Maffeis](https://www.doc.ic.ac.uk/~maffeis/) (Imperial College) and [Marco Cova](http://marcocova.net/) (Lastline).
+My MSc project for the [MSc in Computing (Security and Reliability)](http://www.imperial.ac.uk/computing/prospective-students/courses/pg/msc-specialist-degrees/sr/) of Imperial College London was on the detection of malware in TLS traffic. The malware datasets are also available [here](https://drive.google.com/open?id=1TfRz6q65wPaiuB4D9qmyfCxoJ8zEBUQY) and the slides [here](https://docs.google.com/presentation/d/1IeCra0-XSnLmhzimbWy3w3Nixh2vrtBDSKRnsQ9LSnQ/edit?usp=sharing).
 
 ### [oroques.dev](https://github.com/ojroques/oroques.dev)
 The present website, built with [Jekyll](https://jekyllrb.com) and [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/).
