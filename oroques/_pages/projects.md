@@ -1,6 +1,6 @@
 ---
 permalink: /projects/
-date: 2019-08-27
+date: 2019-09-14
 title: "Projects"
 toc: true
 ---
@@ -9,10 +9,13 @@ Most of the projects listed here can also be found on my [GitHub](https://github
 
 ## 2019
 
+### [TLS Malware Detection](https://github.com/ojroques/tls-malware-detection)
+My MSc project for the [MSc in Computing (Security and Reliability)](http://www.imperial.ac.uk/computing/prospective-students/courses/pg/msc-specialist-degrees/sr/) of Imperial College London was on the detection of malware in TLS traffic. It was supported by [Lastline](https://www.lastline.com), a security company based in the US. My supervisors were [Sergio Maffeis](https://www.doc.ic.ac.uk/~maffeis/) (Imperial College) and [Marco Cova](http://marcocova.net/) (Lastline).
+
 ### [oroques.dev](https://github.com/ojroques/oroques.dev)
 The present website, built with [Jekyll](https://jekyllrb.com) and [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/).
 
-### [Ethereum Smart Contract](https://github.com/ojroques/Ethereum-RockPaperScissors)
+### [Ethereum Smart Contract](https://github.com/ojroques/ethereum-rockpaperscissors)
 This smart contract implements a secure Rock-Paper-Scissors game in Solidity, ready to be deployed on the Ethereum blockchain.
 
 ### [Virtual Private Server](https://github.com/ojroques/privateserver)
@@ -25,7 +28,7 @@ My virtual private server running Debian 10. This VPS acts as:
 
 ## 2018
 
-### [Yao's Protocol](https://github.com/ojroques/Garbled-Circuit)
+### [Yao's Protocol](https://github.com/ojroques/garbled-circuit)
 This project implements a [two-party secure function evaluation](https://en.wikipedia.org/wiki/Secure_two-party_computation) using [Yao's garbled circuit](https://en.wikipedia.org/wiki/Garbled_circuit) protocol. It has been developed for the Privacy Engineering course of Imperial College London.
 
 ### [`staticdep`](https://github.com/ojroques/staticdep)
@@ -37,10 +40,10 @@ The configuration files for my [Xubuntu](https://xubuntu.org) machine.
 
 ## 2017
 
-### [ProjectLoad-for-Dashing](https://github.com/ojroques/ProjectLoad-for-Dashing)
+### [ProjectLoad-for-Dashing](https://github.com/ojroques/projectload-for-dashing)
 A widget for [Dashing](http://dashing.io/) (now [Smashing](https://smashing.github.io)), a framework to build dashboards. The widget displays the load and quality of a project from a Google Spreadsheet.
 
-### [Claptrap](https://github.com/ojroques/OSproject-Claptrap)
+### [Claptrap](https://github.com/ojroques/osproject-claptrap)
 *Claptrap* is a Lego Mindstorms EV3 robot whose purpose is to map an unknown environment ([SLAM problem](https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping)). It has been designed for the group project of the [OS course](http://soc.eurecom.fr/OS/projects_fall2017.html) in Eurecom during Fall 2017.
 
 ### DoctiHome
@@ -51,7 +54,7 @@ It was created for the [PACT](https://www.telecom-paris.fr/en/engineering/a-peda
 
 ## 2016
 
-### [Sudoku Solver](https://github.com/ojroques/SudokuSolver)
+### [Sudoku Solver](https://github.com/ojroques/sudoku-solver)
 A simple graphical sudoku solver Java. It uses the [backtracking algorithm](https://en.wikipedia.org/wiki/Sudoku_solving_algorithms#Backtracking).
 
 ### [Maze Solver]({% link assets/files/maze_solver.zip %}) (.zip)
