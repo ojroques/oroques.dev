@@ -1,6 +1,6 @@
 ---
 permalink: /resume/
-date: 2019-09-01
+date: 2019-10-11
 title: "Resume"
 ---
 
