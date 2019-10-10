@@ -48,7 +48,7 @@ Notes from the *Operating Systems* course at Telecom Paris.
 
 ## 2016
 
-### [Maths Exercises](% link assets/files/maths_exercises.pdf %) (French)
+### [Maths Exercises]({% link assets/files/maths_exercises.pdf %}) (French)
 A collection of maths exercises covering the program of two years of preparatory classes (maths and physics track). Exercises are sorted by difficulty. Solutions are not included but should be easily found on the Internet.
 
 
