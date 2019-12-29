@@ -22,7 +22,7 @@ GEMFILE=$JEKYLL_SRC/Gemfile
 
 BUNDLE_GEMFILE=$GEMFILE bundle install
 BUNDLE_GEMFILE=$GEMFILE bundle exec jekyll build -s $JEKYLL_SRC -d $JEKYLL_DST
-cp -v $JEKYLL_SRC/blank.html $JEKYLL_DST
+cp -v $JEKYLL_SRC/blank.php $JEKYLL_DST
 
 
 #################### movies  ###############################
