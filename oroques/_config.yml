@@ -26,9 +26,9 @@ author:
   location: "Paris, France"
   email:
   links:
-    - label: "olivier@oroques.dev"
+    - label: "rqsolivier@gmail.com"
       icon: "fas fa-fw fa-envelope"
-      url: "mailto:olivier@oroques.dev"
+      url: "mailto:rqsolivier@gmail.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ojroques"
@@ -41,7 +41,7 @@ footer:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
-      url: "mailto:olivier@oroques.dev"
+      url: "mailto:rqsolivier@gmail.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ojroques"
