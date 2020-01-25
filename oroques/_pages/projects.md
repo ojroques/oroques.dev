@@ -1,6 +1,6 @@
 ---
 permalink: /projects/
-date: 2019-11-02
+date: 2019-01-25
 title: "Projects"
 toc: true
 ---
@@ -63,8 +63,8 @@ A graphical maze solver in Java that implements [Dijkstra's algorithm](https://e
 
 ## 2015
 
-### [Prey-Predator Cellular Automaton](https://github.com/ojroques/TIPE)
-A graphical cellular automaton in Python simulating the evolution of a prey-predator system according to [Lotka-Volterra equations](https://en.wikipedia.org/wiki/Lotka–Volterra_equations). The repository is in French.
+### [Predator-Prey Cellular Automaton](https://github.com/ojroques/predator-prey-automaton)
+A graphical cellular automaton in Python modeling the evolution of a predator-prey system according to [Lotka-Volterra equations](https://en.wikipedia.org/wiki/Lotka–Volterra_equations). The repository is in French.
 
 
 ## 2014
