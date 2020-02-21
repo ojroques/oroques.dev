@@ -1,12 +1,12 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(dirname $0)
-cd $SCRIPT_DIR/oroques
+SCRIPT_DIR=$(dirname "$0")
+cd "$SCRIPT_DIR"/oroques || exit 1
 
 if [[ "$#" -eq 0 ]]; then
     bundle exec jekyll serve
 elif [[ "$#" -eq 1 ]]; then
-    bundle exec jekyll serve -P $1
+    bundle exec jekyll serve -P "$1"
 else
     echo "Usage: ./serve.sh [port]"
     exit 1

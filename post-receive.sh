@@ -5,35 +5,35 @@
 
 #################### general ###############################
 WWW=/var/www
-GIT_USER=$HOME/gitea-repositories/olivier
-GIT_REPO=$GIT_USER/oroques.dev.git
-TMP_GIT_CLONE=$GIT_USER/tmp/oroques.dev
+GIT_USER="$HOME"/gitea-repositories/olivier
+GIT_REPO="$GIT_USER"/oroques.dev.git
+TMP_GIT_CLONE="$GIT_USER"/tmp/oroques.dev
 
-git clone $GIT_REPO $TMP_GIT_CLONE
+git clone "$GIT_REPO" "$TMP_GIT_CLONE"
 
 
 #################### oroques ###############################
-export GEM_HOME=$HOME/gems
-export PATH=$GEM_HOME/bin:$PATH
+export GEM_HOME="$HOME"/gems
+export PATH="$GEM_HOME"/bin:"$PATH"
 
-JEKYLL_SRC=$TMP_GIT_CLONE/oroques
-JEKYLL_DST=$WWW/oroques
-GEMFILE=$JEKYLL_SRC/Gemfile
+JEKYLL_SRC="$TMP_GIT_CLONE"/oroques
+JEKYLL_DST="$WWW"/oroques
+GEMFILE="$JEKYLL_SRC"/Gemfile
 
-BUNDLE_GEMFILE=$GEMFILE bundle install
-BUNDLE_GEMFILE=$GEMFILE bundle exec jekyll build -s $JEKYLL_SRC -d $JEKYLL_DST
-cp -v $JEKYLL_SRC/blank.php $JEKYLL_DST
+BUNDLE_GEMFILE="$GEMFILE" bundle install
+BUNDLE_GEMFILE="$GEMFILE" bundle exec jekyll build -s "$JEKYLL_SRC" -d "$JEKYLL_DST"
+cp -v "$JEKYLL_SRC"/home.php "$JEKYLL_DST"
 
 
 #################### movies  ###############################
-MOVIES_SRC=$TMP_GIT_CLONE/movies
-MOVIES_DST=$WWW/movies
+MOVIES_SRC="$TMP_GIT_CLONE"/movies
+MOVIES_DST="$WWW"/movies
 
-rm -rf $MOVIES_DST
-cp -r $MOVIES_SRC $MOVIES_DST
-mv -n $MOVIES_DST/credentials.php $WWW
+rm -rf "$MOVIES_DST"
+cp -r "$MOVIES_SRC" "$MOVIES_DST"
+mv -n "$MOVIES_DST"/credentials.php "$WWW"
 
 
 #################### cleaning  ###############################
-rm -rf $GIT_USER/tmp
+rm -rf "$GIT_USER"/tmp
 exit
