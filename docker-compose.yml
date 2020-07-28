@@ -1,0 +1,80 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: "nginx:latest"
+    container_name: "nginx"
+    volumes:
+      - "/etc/letsencrypt:/etc/letsencrypt"
+      - "./nginx/conf.d:/etc/nginx/conf.d"
+      - "./nginx/snippets:/etc/nginx/snippets"
+      - "./oroques.dev/movies:/var/www/movies"
+      - "./oroques.dev/oroques/_site:/var/www/oroques"
+      - "phpmyadmin:/var/www/html"
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - "gitea"
+      - "jekyll"
+      - "mariadb"
+      - "phpmyadmin"
+
+  phpmyadmin:
+    image: "phpmyadmin/phpmyadmin:fpm"
+    container_name: "phpmyadmin"
+    volumes:
+      - "./oroques.dev/movies:/var/www/movies"
+      - "./oroques.dev/oroques/_site:/var/www/oroques"
+      - "phpmyadmin:/var/www/html"
+    depends_on:
+      - "mariadb"
+    networks:
+      default:
+        aliases:
+          - "php"
+
+  gitea:
+    image: "gitea/gitea:1"
+    container_name: "gitea"
+    volumes:
+      - "gitea:/data"
+    ports:
+      - "2222:22"
+    env_file: "./gitea/gitea.env"
+    depends_on:
+      - "mariadb"
+
+  mariadb:
+    image: "mariadb:latest"
+    container_name: "mariadb"
+    volumes:
+      - "database:/var/lib/mysql"
+      - "./mariadb/docker.cnf:/etc/mysql/conf.d/docker.cnf"
+      - "./mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql"
+    secrets:
+      - "mariadb_root_password"
+      - "mariadb_user_password"
+    env_file: "./mariadb/mariadb.env"
+    networks:
+      default:
+        aliases:
+          - "db"
+
+  jekyll:
+    image: "jekyll/jekyll:latest"
+    container_name: "jekyll"
+    command: "jekyll build"
+    volumes:
+      - "./oroques.dev/oroques:/srv/jekyll"
+
+secrets:
+  mariadb_root_password:
+    file: "./mariadb/root_password"
+  mariadb_user_password:
+    file: "./mariadb/user_password"
+
+volumes:
+  database:
+  gitea:
+  phpmyadmin:

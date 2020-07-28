@@ -3,7 +3,7 @@ permalink: /
 title: "Hello!"
 ---
 
-I am a French student currently doing my end-of-studies internship as a software engineer at *Cisco*, in France. Before that, I was doing a MSc in Computing (Security and Reliability) at *Imperial College London*. My home engineering school in France is *Telecom Paris* where I'll graduate in 2020 of a MSc in Engineering.
+I am currently a junior software engineer at Cisco in France. Before that, I obtained a MSc in Computing (Security and Reliability) from *Imperial College London*. My home engineering school in France is *Telecom Paris* where I graduated in 2020 of a MSc in Engineering (*Diplôme d'ingénieur*).
 
 You'll find on this website [notes]({% link _pages/notes.md %}) I've written -- which include personal writings and lecture notes -- as well as [projects]({% link _pages/projects.md %}) I've developed or been a part of.
 

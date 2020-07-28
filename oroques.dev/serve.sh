@@ -8,6 +8,6 @@ if [[ "$#" -eq 0 ]]; then
 elif [[ "$#" -eq 1 ]]; then
     bundle exec jekyll serve -P "$1"
 else
-    echo "Usage: ./serve.sh [port]"
+    echo "Usage: $0 [port]"
     exit 1
 fi

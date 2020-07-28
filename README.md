@@ -1,8 +1,44 @@
-# oroques.dev
+# My VPS
 
-My personal website, built with [Jekyll](https://jekyllrb.com) and [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/).
+My personal server which hosts my website [oroques.dev](https://oroques.dev/) built with [Jekyll](https://jekyllrb.com).
+
+The server is running:
+* Nginx
+* [Gitea](https://gitea.io/en-us/), a self-hosted git service.
+* MariaDB
+* phpMyAdmin
+
+Everything is running inside Docker containers and Docker Compose is used to manage them.
 
 ## Installation
-1. `sudo ./install.sh` to install Ruby, RubyGems and Jekyll.
-2. `./update.sh` to install and update gems.
-3. `./serve.sh` to build the site and serve it locally.
+
+#### Install necessary packages
+```bash
+./install.sh
+```
+
+#### Generate TLS certificates
+1. Edit [certbot/credentials.ini](certbot/credentials.ini) with a DigitalOcean API access token.
+2. Run setup script:
+```bash
+sudo certbot/setup.sh
+```
+
+#### Configure MariaDB
+1. Create the file containing MariaDB root password:
+```bash
+echo "<password>" > mariadb/root_password
+```
+2. Create the file containing the user password:
+```bash
+echo "<password>" > mariadb/user_password
+```
+3. Edit [mariadb/init.sql](mariadb/init.sql) with `gitea` password:
+```mysql
+CREATE USER IF NOT EXISTS 'gitea'@'gitea.oroquesdev_default' IDENTIFIED BY '<password>';
+```
+
+#### Run Docker Compose
+```bash
+docker-compose up --detach
+```
