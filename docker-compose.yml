@@ -42,7 +42,7 @@ services:
     volumes:
       - "gitea:/data"
     ports:
-      - "2222:22"
+      - "2222:2222"
     env_file: "./gitea/gitea.env"
     depends_on:
       - "mariadb"
