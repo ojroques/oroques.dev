@@ -2,8 +2,8 @@
 
 set -e
 
-# DigitalOcean API credentials .ini file (absolute path)
-CREDENTIALS="$(cd "$(dirname "$0")"; pwd -P)/credentials.ini"
+# DigitalOcean API token .ini file (absolute path)
+TOKEN="$(cd "$(dirname "$0")"; pwd -P)/digitalocean.ini"
 PROPAGATION=2000  # Duration for DNS to propagate
 DOMAIN="oroques.dev"
 
@@ -16,17 +16,18 @@ echo "CERTIFICATE INSTALLATION"
 echo "------------------------------------------------------------"
 
 echo "[Changing file's permissions]"
-chmod 600 "$CREDENTIALS"
+chmod 0600 "$TOKEN"
 
 echo "[Obtaining an SSL certificate]"
 certbot certonly \
   --dns-digitalocean \
-  --dns-digitalocean-credentials "$CREDENTIALS" \
+  --dns-digitalocean-credentials "$TOKEN" \
   --dns-digitalocean-propagation-seconds "$PROPAGATION" \
   -d "*.$DOMAIN" \
   -d "$DOMAIN"
 
 echo "[Changing permissions]"
+chmod 0600 "$TOKEN"
 chmod 0755 /etc/letsencrypt/{live,archive}
 
 echo "[Verifying certbot auto-renewal]"

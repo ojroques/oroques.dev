@@ -18,7 +18,7 @@ Everything is running inside Docker containers and Docker Compose is used to man
 ```
 
 #### Generate TLS certificates
-1. Edit [certbot/credentials.ini](certbot/credentials.ini) with a DigitalOcean API access token.
+1. Edit [certbot/digitalocean.ini](certbot/digitalocean.ini) with a DigitalOcean API access token.
 2. Run setup script:
 ```bash
 sudo certbot/setup.sh
