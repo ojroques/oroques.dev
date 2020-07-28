@@ -1,4 +1,4 @@
-# My VPS
+# oroques.dev
 
 My personal server which hosts my website [oroques.dev](https://oroques.dev/) built with [Jekyll](https://jekyllrb.com).
 
