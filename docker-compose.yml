@@ -10,14 +10,14 @@ services:
       - "./nginx/snippets:/etc/nginx/snippets"
       - "./oroques.dev/credentials.php:/var/www/credentials.php"
       - "./oroques.dev/movies:/var/www/movies"
-      - "./oroques.dev/oroques/_site:/var/www/oroques"
+      - "./oroques.dev/root/public:/var/www/oroques"
       - "phpmyadmin:/var/www/html"
     ports:
       - "80:80"
       - "443:443"
     depends_on:
       - "gitea"
-      - "jekyll"
+      - "hugo"
       - "mariadb"
       - "phpmyadmin"
 
@@ -27,7 +27,7 @@ services:
     volumes:
       - "./oroques.dev/credentials.php:/var/www/credentials.php"
       - "./oroques.dev/movies:/var/www/movies"
-      - "./oroques.dev/oroques/_site:/var/www/oroques"
+      - "./oroques.dev/root/public:/var/www/oroques"
       - "phpmyadmin:/var/www/html"
     depends_on:
       - "mariadb"
@@ -63,12 +63,11 @@ services:
         aliases:
           - "db"
 
-  jekyll:
-    image: "jekyll/jekyll:latest"
-    container_name: "jekyll"
-    command: "jekyll build"
+  hugo:
+    image: "klakegg/hugo:ext-alpine"
+    container_name: "hugo"
     volumes:
-      - "./oroques.dev/oroques:/srv/jekyll"
+      - "./oroques.dev/root:/src"
 
 secrets:
   mariadb_root_password:
