@@ -2,20 +2,19 @@
 
 <html lang="en">
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=1024">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <title>Movies</title>
         <meta name="description" content="List of movies seen">
         <meta name="author" content="Olivier Roques">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <!-- DataTables CSS -->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
         <!-- CSS -->
         <link rel="stylesheet" href="style.css">
     </head>
@@ -28,26 +27,27 @@
             }
         ?>
 
-        <div class="container-fluid my-3">
-            <div class="row align-items-center mb-3">
+        <div class="container-fluid my-2">
+            <div class="row align-items-center mt-4">
                 <div class="col-2 offset-1 text-left">
-                    <a class="btn btn-link" href="https://oroques.dev" role="button">Main website</a>
+                    <a class="btn btn-link text-nowrap" href="https://oroques.dev" role="button">Main website</a>
                 </div>
-                <div class="col-4 offset-1 text-center">
+                <div class="col-4 offset-1 text-center" id="title">
                     <h1>Movies</h1>
                 </div>
                 <div class="col-2 offset-1 text-right">
                     <?php if ($full) {
                         echo "<form action='movies.php' method='post'>\n";
-                        echo "<button name='full' value='false' class='btn btn-primary' type='submit'>Reduced list</button>\n";
+                        echo "<button name='full' value='false' class='btn btn-primary text-nowrap' type='submit'>Reduced list</button>\n";
                     } else {
                         echo "<form action='movies_full.php' method='post'>\n";
-                        echo "<button name='full' value='true' class='btn btn-primary' type='submit'>Full list</button>\n";
+                        echo "<button name='full' value='true' class='btn btn-primary text-nowrap' type='submit'>Full list</button>\n";
                     }
                     echo "</form>\n"; ?>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <hr>
+            <div class="row justify-content-center mt-4">
                 <div class="col-10">
                     <p>
                     This page contains the list of all the films I have seen since July 2012. The data come from a SQL database that has been regularly updated since then. Some columns have deliberatly been removed.
@@ -84,8 +84,6 @@
 
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-        <!-- Bootstrap JS -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         <!-- DataTable JS -->
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
