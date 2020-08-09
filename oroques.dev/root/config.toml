@@ -22,7 +22,7 @@ enableEmoji = true
     weight = 1
   [[menu.main]]
     name = "Resume"
-    url = "/resume.pdf"
+    url = "/resume_en.pdf"
     weight = 2
   [[menu.main]]
     name = "Projects"

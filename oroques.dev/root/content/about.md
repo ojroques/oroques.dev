@@ -25,4 +25,4 @@ participated in.
 
 ## Subdomains
 
-* My Git server: [git.oroques.dev](https://git.oroques.dev/)
+* My Git server: [git.oroques.dev](https://git.oroques.dev/olivier)
