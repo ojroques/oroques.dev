@@ -2,11 +2,13 @@
 title = "Notes"
 +++
 
-## Mathematics
+## Notes
+
+#### Mathematics
 * [**Probability Theory**](probability.pdf) (fr)
 * [**Functional Analysis**](analysis.pdf) (fr)
 
-## Computer Science
+#### Computer Science
 * [**Scalable Systems for the Cloud**](scalable-systems.pdf)
 * [**Information and Coding Theory**](info-theory.pdf)
 * [**Formal Language**](formal-language.pdf) (fr)
@@ -14,10 +16,10 @@ title = "Notes"
 * [**C Language**](c-language.pdf) (fr)
 * [**Operating Systems**](os.pdf) (fr)
 
-## Physics
+#### Physics
 * [**Optics and Photonics**](optics.pdf) (fr)
 
-## Others
+#### Others
 * [**LaTeX template**](https://github.com/ojroques/dotfiles/tree/master/latex):
 My LaTeX base template.
 * [**cheatsheets**](https://github.com/ojroques/cheatsheets):

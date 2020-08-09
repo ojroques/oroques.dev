@@ -13,9 +13,8 @@ of a MSc in Computing -- Security and Reliability -- in 2019 and from
 [Telecom Paris](https://www.telecom-paris.fr/en/home) of a MSc in Engineering
 (*Diplôme d’ingénieur*) in 2020.
 
-You’ll find on this website notes I’ve written (personal writings and lecture
-notes) as well as projects I have started or have
-participated in.
+You’ll find on this website notes I’ve written (mainly lecture notes) as well
+as projects I have started or have participated in.
 
 ## Contact
 
