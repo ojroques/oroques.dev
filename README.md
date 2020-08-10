@@ -1,6 +1,8 @@
 # oroques.dev
 
-My personal server which hosts my website [oroques.dev](https://oroques.dev/) built with [Hugo](https://github.com/gohugoio/hugo).
+My personal server which hosts my website [oroques.dev](https://oroques.dev/).
+The website is built with [Hugo](https://github.com/gohugoio/hugo) and
+the [researcher theme](https://github.com/ojroques/hugo-researcher).
 
 The server is running:
 * Nginx
@@ -8,7 +10,8 @@ The server is running:
 * MariaDB
 * phpMyAdmin
 
-Everything is running inside Docker containers and Docker Compose is used to manage them.
+Everything is running inside Docker containers and Docker Compose is used to
+manage them.
 
 ## Installation
 

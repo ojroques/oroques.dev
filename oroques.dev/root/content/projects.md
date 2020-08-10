@@ -30,7 +30,7 @@ A Python tool to compute the dependencies among object files of a C static libra
 * [**dotfiles**](https://github.com/ojroques/dotfiles):
 My config files.
 * [**Claptrap**](https://github.com/ojroques/osproject-claptrap): A Lego Mindstorms EV3 robot programmed to map an unknown environment.
-* **DoctiHome**: A healthcare home device for the elderly. It comprised of a bracelet monitoring the patient's health and an Android application linking the patient with its relatives. The project entered the [2017 Student Award contest](http://www.fondationsoprasteria.org/prix-etudiants) organized by *Fondation Sopra-Steria* where it reached third place.
+* **DoctiHome**: A healthcare home device for the elderly. It comprised of a bracelet monitoring the patient's health and an Android application linking the patient with its relatives. The project entered the *2017 Student Award* contest organized by [Fondation Sopra-Steria](http://www.fondationsoprasteria.org/) where it reached third place.
 
 #### 2017 and before
 * [**Sudoku Solver**](https://github.com/ojroques/sudoku-solver):

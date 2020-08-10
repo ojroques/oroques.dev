@@ -50,7 +50,7 @@
             <div class="row justify-content-center mt-4">
                 <div class="col-10">
                     <p>
-                    This page contains the list of all the films I have seen since July 2012. The data come from a SQL database that has been regularly updated since then. Some columns have deliberatly been removed.
+                    This page contains the list of films I have watched since July 2012. The data come from a SQL database that is regularly updated. Some columns have been removed.
                     <?php if ($full) {
                         echo "</br>Entries without <q>seen date</q> are movies I have watched before the creation of this list.";
                     } ?>
