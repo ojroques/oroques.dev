@@ -41,6 +41,12 @@ echo "<password>" > mariadb/user_password
 CREATE USER IF NOT EXISTS 'gitea'@'gitea.oroquesdev_default' IDENTIFIED BY '<password>';
 ```
 
+#### Retrieve submodules
+To initialize, fetch and checkout submodules:
+```bash
+git submodule update --init --recursive
+```
+
 #### Run Docker Compose
 ```bash
 docker-compose up --detach

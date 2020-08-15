@@ -1,0 +1,3 @@
+[submodule "oroques.dev/root/themes/researcher"]
+	path = oroques.dev/root/themes/researcher
+	url = https://github.com/ojroques/hugo-researcher
