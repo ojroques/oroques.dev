@@ -16,7 +16,7 @@ A Vim plugin.
 
 #### 2019
 * [**TLS Malware Detection**](https://github.com/ojroques/tls-malware-detection):
-My MSc project for Imperial College London, on the detection of malware in TLS traffic. It won the [*Corporate Partnership Programme Prize in Computing Science*](https://www.imperial.ac.uk/computing/prospective-students/distinguished-projects/pg-prizes/).
+My MSc project for Imperial College London, on the detection of malware in TLS traffic. It won the [*Corporate Partnership Programme Prize in Computing Science*](http://www.imperial.ac.uk/computing/industry/cpp/).
 * [**Ethereum Rock-Paper-Scissors**](https://github.com/ojroques/ethereum-rockpaperscissors):
 A smart contract that implements a secure rock-paper-scissors game for the Ethereum blockchain.
 * [**go-leveledlog**](https://github.com/ojroques/leveledlog):
@@ -37,4 +37,4 @@ My config files.
 A simple graphical sudoku solver in Java.
 * [**Predator-Prey Cellular Automaton**](https://github.com/ojroques/predator-prey-automaton) (fr):
 A graphical cellular automaton in Python modeling the evolution of a predator-prey system according to [Lotka-Volterra equations](https://en.wikipedia.org/wiki/Lotka–Volterra_equations).
-* [**Conway's Game of Life**](game-of-life.zip) (.zip): A graphical [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) in Python.
+* [**Conway's Game of Life**](/game-of-life.zip) (.zip): A graphical [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) in Python.
