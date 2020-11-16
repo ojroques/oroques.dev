@@ -3,6 +3,7 @@ baseURL = "https://oroques.dev"
 theme = "researcher"
 disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
 enableEmoji = true
+math = false
 
 [params]
   author = "Olivier Roques"

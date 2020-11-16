@@ -16,6 +16,8 @@ function install_certbot() {
 function install_motd() {
   echo "[MOTD]"
 
+  local temp_dir="/tmp/motd"
+  local install_dir="/etc/update-motd.d"
   local to_remove=(
     "00-header"
     "10-help-text"
@@ -28,24 +30,17 @@ function install_motd() {
     "50-services"
     "60-docker"
   )
-  local temp_dir="/tmp/motd"
-  local install_dir="/etc/update-motd.d"
 
   sudo apt install -y figlet
-
-  if [[ ! -d $temp_dir ]]; then
-    git clone https://github.com/ojroques/motd.git "$temp_dir"
-  fi
+  [[ ! -d $temp_dir ]] && git clone https://github.com/ojroques/motd.git "$temp_dir"
 
   for script in "${to_remove[@]}"; do
     sudo rm -f "$install_dir"/"$script"
   done
 
-  pushd "$temp_dir"
   for motd in "${motds[@]}"; do
-    sudo cp -vf "$motd" "$install_dir"
+    sudo cp -vf "$temp_dir"/"$motd" "$install_dir"
   done
-  popd
 }
 
 function install_docker() {
@@ -57,20 +52,7 @@ function install_docker() {
   fi
 
   # Install Docker
-  sudo apt install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  sudo add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) stable"
-  sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io
-
-  # Create 'docker' group
-  sudo groupadd docker
+  curl -fsSL https://get.docker.com | sudo bash
   sudo usermod -aG docker "$USER"
   newgrp docker
 
@@ -86,7 +68,7 @@ function install_docker-compose() {
     return 0
   fi
 
-  local version="1.26.2"
+  local version="1.27.4"
   local install_dir="/usr/local/bin/docker-compose"
 
   sudo curl -L "https://github.com/docker/compose/releases/download/$version/docker-compose-$(uname -s)-$(uname -m)" -o $install_dir
