@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <!-- DataTables CSS -->
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&family=Roboto+Condensed&display=swap" rel="stylesheet">
         <!-- CSS -->
@@ -92,12 +93,14 @@
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/plug-ins/1.10.21/sorting/datetime-moment.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
         <script>
             $(document).ready(function() {
                 $.fn.dataTable.moment('MMM YYYY', 'en');
                 $('#movies').DataTable({
                     paging: false,
                     scrollY: "64vh",
+                    responsive: true,
                     columns: [
                         {className: "dt-head-center"},
                         {className: "dt-head-center"},
