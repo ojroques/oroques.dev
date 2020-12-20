@@ -7,6 +7,8 @@ title = "Projects"
 Most of my projects can be found on my [GitHub](https://github.com/ojroques) page.
 
 #### 2020
+* [**nvim-lspfuzzy**](https://github.com/ojroques/nvim-lspfuzzy):
+A [Neovim](https://neovim.io/) plugin extending the built-in LSP client.
 * [**hugo-researcher**](https://github.com/ojroques/hugo-researcher):
 A [Hugo](https://gohugo.io/) theme.
 * [**oroques.dev**](https://github.com/ojroques/oroques.dev):
