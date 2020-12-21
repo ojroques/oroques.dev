@@ -8,8 +8,9 @@ title = "About"
 
 I am currently a junior software engineer at Cisco Systems in Paris, France.
 
-Before that, I graduated from [Imperial College](https://www.imperial.ac.uk/study/pg/computing/secure-software-systems/)
-of a MSc in Computing -- Security and Reliability -- in 2019 and from
+Before that, I graduated from
+[Imperial College](https://www.imperial.ac.uk/study/pg/computing/secure-software-systems/)
+of a MSc in Computing (Security and Reliability) in 2019 and from
 [Telecom Paris](https://www.telecom-paris.fr/en/home) of a MSc in Engineering
 (*Diplôme d’ingénieur*) in 2020.
 

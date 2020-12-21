@@ -1,8 +1,9 @@
 +++
-title = "Notes"
+title = "Lecture Notes"
+date = "2020-08-09"
 +++
 
-## Notes
+## Lecture Notes
 
 #### Mathematics
 * [**Probability Theory**](/probability.pdf) (fr)
@@ -21,8 +22,9 @@ title = "Notes"
 
 #### Others
 * [**LaTeX Template**](https://github.com/ojroques/dotfiles/tree/master/latex):
-My LaTeX base template.
+  My LaTeX base template.
 * [**Cheatsheets**](https://github.com/ojroques/cheatsheets):
-A collection of cheatsheets.
+  A collection of cheatsheets.
 * [**Maths Exercises**](/maths-exercises.pdf) (fr):
-A collection of maths exercises covering two years of preparatory classes (MPSI -- MP). Exercises are sorted by difficulty. Solutions are not included.
+  A collection of maths exercises covering two years of preparatory classes
+  (MPSI -- MP). Exercises are sorted by difficulty. Solutions are not included.
