@@ -92,7 +92,7 @@ About the plugins:
 * [fzf](https://github.com/junegunn/fzf),
   [fzf.vim](https://github.com/junegunn/fzf.vim/) and
   [lspfuzzy](https://github.com/ojroques/nvim-lspfuzzy):
-  FZF is a very popular fuzzy finder and lspfuzzy is a plugin I've developped
+  FZF is a very popular fuzzy finder and lspfuzzy is a plugin I've developed
   to make the Neovim LSP client use FZF instead of the quickfix list. An
   alternative fuzzy finder written in Lua is
   [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim).
@@ -232,7 +232,7 @@ and autocommands yet. Work is in progress to implement such an interface,
 see [PR#11613](https://github.com/neovim/neovim/pull/11613) for commands and
 [PR#12378](https://github.com/neovim/neovim/pull/12378) for autocommands.
 
-You can still deifne commands or autocommands using Vimscript via `vim.cmd`.
+You can still define commands or autocommands using Vimscript via `vim.cmd`.
 For instance Neovim 0.5 introduces the
 [highlight on yank](https://github.com/neovim/neovim/pull/12279) feature which
 briefly highlights yanked text. You can enable it as an autocommand like so:
@@ -343,7 +343,8 @@ Also you might be interested in the Vim/Neovim plugins I've developed:
 * [nvim-lspfuzzy](https://github.com/ojroques/nvim-lspfuzzy):
   extend the Neovim built-in LSP client to use FZF.
 * [vim-oscyank](https://github.com/ojroques/vim-oscyank):
-  copy text from anywhere (including through SSH) with OSC52.
+  copy text from anywhere (including through SSH) with
+  [OSC52](/notes/vim-osc52).
 * [vim-scrollstatus](https://github.com/ojroques/vim-scrollstatus):
   display a scrollbar in your statusline (for Neovim 0.5 there are even better
   alternatives [here](https://github.com/dstein64/nvim-scrollview) or
