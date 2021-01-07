@@ -1,6 +1,6 @@
 +++
 title = "Neovim 0.5 features and the switch to init.lua"
-date = "2020-12-21"
+date = "2020-01-07"
 +++
 
 # Neovim 0.5 features and the switch to `init.lua`
@@ -88,7 +88,7 @@ About the plugins:
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig):
   Neovim 0.5 ships with a native LSP client but you still need a server for
   each language you're writing in. This plugin is there to facilitate the
-  installation and management of language servers.
+  configuration of language servers.
 * [fzf](https://github.com/junegunn/fzf),
   [fzf.vim](https://github.com/junegunn/fzf.vim/) and
   [lspfuzzy](https://github.com/ojroques/nvim-lspfuzzy):
@@ -108,10 +108,12 @@ The Neovim Lua API provide 3 tables to set options:
 
 Unfortunately setting an option is not as straightforward in Lua as in
 Vimscript. In Lua you need to update the global table then either the
-buffer-scoped or the window-scoped table (according to the scope of the option,
-check Vim help pages to know which one to use) to ensure that an option is
-correctly set. Otherwise some option like `expandtab` will only be valid for
-the current buffer of a new Neovim instance.
+buffer-scoped or the window-scoped table to ensure that an option is correctly
+set. Otherwise some option like `expandtab` will only be valid for the starting
+buffer of a new Neovim instance.
+
+To know which one to set, check Vim help pages. For instance for `expandtab`:
+![vim-scope](./vim-scope.png)
 
 Fortunately the Neovim team is working on an universal and simpler option
 interface, see [PR#13479](https://github.com/neovim/neovim/pull/13479).
@@ -129,26 +131,27 @@ end
 Here is a list of recommended settings:
 ```lua
 local indent = 2
-cmd 'colorscheme desert'                   -- Put your favorite colorscheme here
-opt('b', 'expandtab', true)                -- Use spaces instead of tabs
-opt('b', 'shiftwidth', indent)             -- Size of an indent
-opt('b', 'smartindent', true)              -- Insert indents automatically
-opt('b', 'tabstop', indent)                -- Number of spaces tabs count for
-opt('o', 'hidden', true)                   -- Enable modified buffers in background
-opt('o', 'ignorecase', true)               -- Ignore case
-opt('o', 'joinspaces', false)              -- No double spaces with join after a dot
-opt('o', 'scrolloff', 4 )                  -- Lines of context
-opt('o', 'shiftround', true)               -- Round indent
-opt('o', 'sidescrolloff', 8 )              -- Columns of context
-opt('o', 'smartcase', true)                -- Don't ignore case with capitals
-opt('o', 'splitbelow', true)               -- Put new windows below current
-opt('o', 'splitright', true)               -- Put new windows right of current
-opt('o', 'termguicolors', true)            -- True color support
-opt('o', 'wildmode', 'longest:full,full')  -- Command-line completion mode
-opt('w', 'list', true)                     -- Show some invisible characters (tabs etc.)
-opt('w', 'number', true)                   -- Print line number
-opt('w', 'relativenumber', true)           -- Relative line numbers
-opt('w', 'wrap', false)                    -- Disable line wrap
+cmd 'colorscheme desert'                              -- Put your favorite colorscheme here
+opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
+opt('b', 'shiftwidth', indent)                        -- Size of an indent
+opt('b', 'smartindent', true)                         -- Insert indents automatically
+opt('b', 'tabstop', indent)                           -- Number of spaces tabs count for
+opt('o', 'completeopt', 'menuone,noinsert,noselect')  -- Completion options (for deoplete)
+opt('o', 'hidden', true)                              -- Enable modified buffers in background
+opt('o', 'ignorecase', true)                          -- Ignore case
+opt('o', 'joinspaces', false)                         -- No double spaces with join after a dot
+opt('o', 'scrolloff', 4 )                             -- Lines of context
+opt('o', 'shiftround', true)                          -- Round indent
+opt('o', 'sidescrolloff', 8 )                         -- Columns of context
+opt('o', 'smartcase', true)                           -- Don't ignore case with capitals
+opt('o', 'splitbelow', true)                          -- Put new windows below current
+opt('o', 'splitright', true)                          -- Put new windows right of current
+opt('o', 'termguicolors', true)                       -- True color support
+opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
+opt('w', 'list', true)                                -- Show some invisible characters (tabs...)
+opt('w', 'number', true)                              -- Print line number
+opt('w', 'relativenumber', true)                      -- Relative line numbers
+opt('w', 'wrap', false)                               -- Disable line wrap
 ```
 
 ## Mappings
@@ -167,8 +170,8 @@ end
 And here are mapping suggestions to illustrate the use of above helper:
 ```lua
 map('', '<leader>c', '"+y')       -- Copy to clipboard in normal, visual, select and operator modes
-map('i', '<C-u>', '<C-g>u<C-u>')  -- Make <C-u> undoable
-map('i', '<C-w>', '<C-g>u<C-w>')  -- Make <C-w> undoable
+map('i', '<C-u>', '<C-g>u<C-u>')  -- Make <C-u> undo-friendly
+map('i', '<C-w>', '<C-g>u<C-w>')  -- Make <C-w> undo-friendly
 
 -- <Tab> to navigate the completion menu
 map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
@@ -195,9 +198,7 @@ documentation for more options.
 Thanks to the `lspconfig` plugin, configuring the LSP client is relatively easy:
 * First install a server for your language: check
   [here](https://microsoft.github.io/language-server-protocol/implementors/servers/)
-  for available implementations. For some of them, the plugin
-  provides a command to install the server directly from Neovim with
-  `:LspInstall <server>`. Otherwise you need to install it manually.
+  for available implementations.
 * Then call `setup()` to enable the server. Check the
   [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) documentation for
   advanced configuration.
@@ -210,6 +211,7 @@ installed). We also create mappings for the most useful LSP commands.
 local lsp = require 'lspconfig'
 local lspfuzzy = require 'lspfuzzy'
 
+-- For ccls we use the default settings
 lsp.ccls.setup {}
 -- root_dir is where the LSP server will start: here at the project root otherwise in current folder
 lsp.pyls.setup {root_dir = lsp.util.root_pattern('.git', fn.getcwd())}
@@ -274,32 +276,33 @@ paq {'ojroques/nvim-lspfuzzy'}
 g['deoplete#enable_at_startup'] = 1  -- enable deoplete at startup
 
 -------------------- OPTIONS -------------------------------
-local indent = 2
-cmd 'colorscheme desert'                   -- Put your favorite colorscheme here
-opt('b', 'expandtab', true)                -- Use spaces instead of tabs
-opt('b', 'shiftwidth', indent)             -- Size of an indent
-opt('b', 'smartindent', true)              -- Insert indents automatically
-opt('b', 'tabstop', indent)                -- Number of spaces tabs count for
-opt('o', 'hidden', true)                   -- Enable modified buffers in background
-opt('o', 'ignorecase', true)               -- Ignore case
-opt('o', 'joinspaces', false)              -- No double spaces with join after a dot
-opt('o', 'scrolloff', 4 )                  -- Lines of context
-opt('o', 'shiftround', true)               -- Round indent
-opt('o', 'sidescrolloff', 8 )              -- Columns of context
-opt('o', 'smartcase', true)                -- Don't ignore case with capitals
-opt('o', 'splitbelow', true)               -- Put new windows below current
-opt('o', 'splitright', true)               -- Put new windows right of current
-opt('o', 'termguicolors', true)            -- True color support
-opt('o', 'wildmode', 'longest:full,full')  -- Command-line completion mode
-opt('w', 'list', true)                     -- Show some invisible characters (tabs etc.)
-opt('w', 'number', true)                   -- Print line number
-opt('w', 'relativenumber', true)           -- Relative line numbers
-opt('w', 'wrap', false)                    -- Disable line wrap
+local indent = 4
+cmd 'colorscheme desert'                              -- Put your favorite colorscheme here
+opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
+opt('b', 'shiftwidth', indent)                        -- Size of an indent
+opt('b', 'smartindent', true)                         -- Insert indents automatically
+opt('b', 'tabstop', indent)                           -- Number of spaces tabs count for
+opt('o', 'completeopt', 'menuone,noinsert,noselect')  -- Completion options (for deoplete)
+opt('o', 'hidden', true)                              -- Enable modified buffers in background
+opt('o', 'ignorecase', true)                          -- Ignore case
+opt('o', 'joinspaces', false)                         -- No double spaces with join after a dot
+opt('o', 'scrolloff', 4 )                             -- Lines of context
+opt('o', 'shiftround', true)                          -- Round indent
+opt('o', 'sidescrolloff', 8 )                         -- Columns of context
+opt('o', 'smartcase', true)                           -- Don't ignore case with capitals
+opt('o', 'splitbelow', true)                          -- Put new windows below current
+opt('o', 'splitright', true)                          -- Put new windows right of current
+opt('o', 'termguicolors', true)                       -- True color support
+opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
+opt('w', 'list', true)                                -- Show some invisible characters (tabs...)
+opt('w', 'number', true)                              -- Print line number
+opt('w', 'relativenumber', true)                      -- Relative line numbers
+opt('w', 'wrap', false)                               -- Disable line wrap
 
 -------------------- MAPPINGS ------------------------------
 map('', '<leader>c', '"+y')       -- Copy to clipboard in normal, visual, select and operator modes
-map('i', '<C-u>', '<C-g>u<C-u>')  -- Make <C-u> undoable
-map('i', '<C-w>', '<C-g>u<C-w>')  -- Make <C-w> undoable
+map('i', '<C-u>', '<C-g>u<C-u>')  -- Make <C-u> undo-friendly
+map('i', '<C-w>', '<C-g>u<C-w>')  -- Make <C-w> undo-friendly
 
 -- <Tab> to navigate the completion menu
 map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', {expr = true})
@@ -316,6 +319,7 @@ ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 local lsp = require 'lspconfig'
 local lspfuzzy = require 'lspfuzzy'
 
+-- For ccls we use the default settings
 lsp.ccls.setup {}
 -- root_dir is where the LSP server will start: here at the project root otherwise in current folder
 lsp.pyls.setup {root_dir = lsp.util.root_pattern('.git', fn.getcwd())}
@@ -345,6 +349,8 @@ Also you might be interested in the Vim/Neovim plugins I've developed:
 * [vim-oscyank](https://github.com/ojroques/vim-oscyank):
   copy text from anywhere (including through SSH) with
   [OSC52](/notes/vim-osc52).
+* [nvim-hardline](https://github.com/ojroques/nvim-hardline):
+  a light statusline in Lua inspired by *vim-airline*.
 * [vim-scrollstatus](https://github.com/ojroques/vim-scrollstatus):
   display a scrollbar in your statusline (for Neovim 0.5 there are even better
   alternatives [here](https://github.com/dstein64/nvim-scrollview) or
