@@ -15,14 +15,14 @@ this new version will ship with are:
   user config.
 
 This post will help you write a very basic `init.lua` which include all these
-new features. There are definitely some personal choices thrown in there so
-feel free to ignore them or use the suggested alternatives.
+new features. There are definitely some personal choices thrown in there so feel
+free to ignore them or use the suggested alternatives.
 
-We're going to avoid Vimscript entirely, and instead use Lua and the Neovim
-Lua API extensively. The best reference on this subject is the
-[nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide).
-Also check [Learn Lua in Y minutes](https://learnxinyminutes.com/docs/lua/)
-for a quick overview of the Lua language.
+We're going to avoid Vimscript entirely, and instead use Lua and the Neovim Lua
+API extensively. The best reference on this subject is the
+[nvim-lua-guide](https://github.com/nanotee/nvim-lua-guide). Also check
+[Learn Lua in Y minutes](https://learnxinyminutes.com/docs/lua/) for a quick
+overview of the Lua language.
 
 ## Contents
 * [Aliases](#aliases)
@@ -45,13 +45,13 @@ local g = vim.g      -- a table to access global variables
 ## Plugins
 You have several options to manage your plugins:
 * Keep using your favorite plugin manager such as
-  [vim-plug](https://github.com/junegunn/vim-plug). This implies some
-  Vimscript code so we'll skip that option.
+  [vim-plug](https://github.com/junegunn/vim-plug).
+  This implies some Vimscript code so we'll skip that option.
 * A popular choice is [packer.nvim](https://github.com/wbthomason/packer.nvim).
-  It's written in Lua and definitely a good choice. It's a bit verbose so
-  we won't use it here.
-* We'll use [paq-nvim](https://github.com/savq/paq-nvim), a minimalist
-  (~120 LOC) package manager. Install it like so:
+  It's written in Lua and definitely a good choice. It's a bit verbose so we
+  won't use it here.
+* We'll use [paq-nvim](https://github.com/savq/paq-nvim), a minimalist (~130
+  LOC) package manager. Install it like so:
   ```sh
   $ git clone https://github.com/savq/paq-nvim.git \
       "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
@@ -72,29 +72,29 @@ paq {'ojroques/nvim-lspfuzzy'}
 g['deoplete#enable_at_startup'] = 1  -- enable deoplete at startup
 ```
 
-Now you can run `:PaqInstall` to install all plugins, `:PaqUpdate` to
-update them and `:PaqClean` to remove unused ones.
+Now you can run `:PaqInstall` to install all plugins, `:PaqUpdate` to update
+them and `:PaqClean` to remove unused ones.
 
 About the plugins:
 * [deoplete-lsp](https://github.com/Shougo/deoplete-lsp) and
-  [deoplete.nvim](https://github.com/Shougo/deoplete.nvim):
-  These plugins provide autocompletion. An alternative written entirely in Lua
-  is [completion.nvim](https://github.com/nvim-lua/completion-nvim) but in my
+  [deoplete.nvim](https://github.com/Shougo/deoplete.nvim): These plugins
+  provide autocompletion. An alternative written entirely in Lua is
+  [completion.nvim](https://github.com/nvim-lua/completion-nvim) but in my
   opinion it doesn't compete with deoplete yet in terms of features and
   completion sources.
-* [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter):
-  The tree-sitter is integrated to Neovim 0.5 but language modules are not.
-  This plugin can configure and install them for you.
-* [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig):
-  Neovim 0.5 ships with a native LSP client but you still need a server for
-  each language you're writing in. This plugin is there to facilitate the
-  configuration of language servers.
+* [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter): The
+  tree-sitter is integrated to Neovim 0.5 but language modules are not. This
+  plugin can configure and install them for you.
+* [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig): Neovim 0.5 ships
+  with a native LSP client but you still need a server for each language you're
+  writing in. This plugin is there to facilitate the configuration of language
+  servers.
 * [fzf](https://github.com/junegunn/fzf),
   [fzf.vim](https://github.com/junegunn/fzf.vim/) and
-  [lspfuzzy](https://github.com/ojroques/nvim-lspfuzzy):
-  FZF is a very popular fuzzy finder and lspfuzzy is a plugin I've developed
-  to make the Neovim LSP client use FZF instead of the quickfix list. An
-  alternative fuzzy finder written in Lua is
+  [lspfuzzy](https://github.com/ojroques/nvim-lspfuzzy): FZF is a very popular
+  fuzzy finder and lspfuzzy is a plugin I've developed to make the Neovim LSP
+  client use FZF instead of the quickfix list. An alternative fuzzy finder
+  written in Lua is
   [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim).
 
 Here is how LSP and FZF interact together when looking for symbol references:
@@ -113,11 +113,11 @@ set. Otherwise some option like `expandtab` will only be valid for the starting
 buffer of a new Neovim instance.
 
 To know which one to set, check Vim help pages. For instance for `expandtab`:
-![vim-scope](./vim-scope.png)
+![vim-scope](/vim-scope.png)
 
 Fortunately the Neovim team is working on an universal and simpler option
-interface, see [PR#13479](https://github.com/neovim/neovim/pull/13479).
-In the meantime you can use this function as a workaround:
+interface, see [PR#13479](https://github.com/neovim/neovim/pull/13479). In the
+meantime you can use this function as a workaround:
 
 ```lua
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
@@ -156,9 +156,9 @@ opt('w', 'wrap', false)                               -- Disable line wrap
 
 ## Mappings
 The `vim.api.nvim_set_keymap()` function allows you to define a new mapping.
-Specific behaviors such as `noremap` must be passed as a table to that
-function. Here is a helper to create mappings with the `noremap` option set
-to `true` by default:
+Specific behaviors such as `noremap` must be passed as a table to that function.
+Here is a helper to create mappings with the `noremap` option set to `true` by
+default:
 ```lua
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true}
@@ -189,9 +189,9 @@ ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 ```
 
 Here the `maintained` value indicates that we wish to use all maintained
-languages modules. You also need to set highlight to `true` otherwise the
-plugin will be disabled.
-Check the [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+languages modules. You also need to set highlight to `true` otherwise the plugin
+will be disabled. Check the
+[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 documentation for more options.
 
 ## Configuring the LSP Client
@@ -229,9 +229,9 @@ map('n', '<space>s', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 ```
 
 ## Commands and Autocommands
-Unfortunately Neovim doesn't have an interface to create commands
-and autocommands yet. Work is in progress to implement such an interface,
-see [PR#11613](https://github.com/neovim/neovim/pull/11613) for commands and
+Unfortunately Neovim doesn't have an interface to create commands and
+autocommands yet. Work is in progress to implement such an interface, see
+[PR#11613](https://github.com/neovim/neovim/pull/11613) for commands and
 [PR#12378](https://github.com/neovim/neovim/pull/12378) for autocommands.
 
 You can still define commands or autocommands using Vimscript via `vim.cmd`.
