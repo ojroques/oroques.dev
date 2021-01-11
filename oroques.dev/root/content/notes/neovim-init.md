@@ -349,8 +349,6 @@ Also you might be interested in the Vim/Neovim plugins I've developed:
 * [vim-oscyank](https://github.com/ojroques/vim-oscyank):
   copy text from anywhere (including through SSH) with
   [OSC52](/notes/vim-osc52).
-* [nvim-hardline](https://github.com/ojroques/nvim-hardline):
-  a light statusline in Lua inspired by *vim-airline*.
 * [vim-scrollstatus](https://github.com/ojroques/vim-scrollstatus):
   display a scrollbar in your statusline (for Neovim 0.5 there are even better
   alternatives [here](https://github.com/dstein64/nvim-scrollview) or
