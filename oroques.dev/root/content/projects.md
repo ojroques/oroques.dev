@@ -7,13 +7,17 @@ title = "Projects"
 Most of my projects can be found on my [GitHub](https://github.com/ojroques)
 page.
 
+#### 2021
+* [**nvim-hardline**](https://github.com/ojroques/nvim-hardline):
+  A Neovim statusline plugin inspired by vim-airline.
+* [**nvim-lspfuzzy**](https://github.com/ojroques/nvim-lspfuzzy):
+  A Neovim plugin extending the built-in LSP client.
+
 #### 2020
 * [**python-sshcontroller**](https://github.com/ojroques/python-sshcontroller):
   A Python package to easily run SSH commands.
 * [**vim-oscyank**](https://github.com/ojroques/vim-oscyank):
   A Vim plugin to copy text from anywhere via the OSC52 protocol.
-* [**nvim-lspfuzzy**](https://github.com/ojroques/nvim-lspfuzzy):
-  A [Neovim](https://neovim.io/) plugin extending the built-in LSP client.
 * [**hugo-researcher**](https://github.com/ojroques/hugo-researcher):
   A [Hugo](https://gohugo.io/) theme.
 * [**oroques.dev**](https://github.com/ojroques/oroques.dev):
