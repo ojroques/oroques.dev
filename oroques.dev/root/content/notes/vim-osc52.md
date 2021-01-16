@@ -43,6 +43,8 @@ OSC52 (as of November 2020):
 | [screen](https://www.gnu.org/software/screen/) | **yes** |
 | [tmux](https://github.com/tmux/tmux) | **yes** |
 | [Windows Terminal](https://github.com/microsoft/terminal) | **yes** |
+| [rxvt](http://rxvt.sourceforge.net/) | **yes** (to be confirmed) |
+| [urxvt](http://software.schmorp.de/pkg/rxvt-unicode.html) | **yes** (with a script, see [here](https://github.com/ojroques/vim-oscyank/issues/4)) |
 
 I've developed a very simple plugin to use the OSC52 protocol:
 [vim-oscyank](https://github.com/ojroques/vim-oscyank). It basically takes
