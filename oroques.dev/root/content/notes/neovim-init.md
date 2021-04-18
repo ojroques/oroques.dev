@@ -5,6 +5,9 @@ date = "2020-01-07"
 
 # Neovim 0.5 features and the switch to `init.lua`
 
+*__2021-04-18 update__: added links to nvim-compe and awesome-neovim, added a new
+section to mention other plugins.*
+
 Neovim 0.5 will soon be released with some major additions. The main features
 this new version will ship with are:
 * A built-in [LSP](https://microsoft.github.io/language-server-protocol/)
@@ -32,6 +35,7 @@ overview of the Lua language.
 * [Configuring the LSP Client](#configuring-the-lsp-client)
 * [Configuring the Tree-sitter](#configuring-the-tree-sitter)
 * [Commands and Autocommands](#commands-and-autocommands)
+* [Additional Plugins](#additional-plugins)
 * [Conclusion](#conclusion)
 
 ## Aliases
@@ -50,8 +54,8 @@ You have several options to manage your plugins:
 * A popular choice is [packer.nvim](https://github.com/wbthomason/packer.nvim).
   It's written in Lua and definitely a good choice. It's a bit verbose so we
   won't use it here.
-* We'll use [paq-nvim](https://github.com/savq/paq-nvim), a minimalist (~130
-  LOC) package manager. Install it like so:
+* We'll use [paq-nvim](https://github.com/savq/paq-nvim), a minimalist package
+  manager. Install it like so:
   ```sh
   $ git clone https://github.com/savq/paq-nvim.git \
       "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
@@ -63,10 +67,10 @@ cmd 'packadd paq-nvim'               -- load the package manager
 local paq = require('paq-nvim').paq  -- a convenient alias
 paq {'savq/paq-nvim', opt = true}    -- paq-nvim manages itself
 paq {'shougo/deoplete-lsp'}
-paq {'shougo/deoplete.nvim', hook = fn['remote#host#UpdateRemotePlugins']}
+paq {'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']}
 paq {'nvim-treesitter/nvim-treesitter'}
 paq {'neovim/nvim-lspconfig'}
-paq {'junegunn/fzf', hook = fn['fzf#install']}
+paq {'junegunn/fzf', run = fn['fzf#install']}
 paq {'junegunn/fzf.vim'}
 paq {'ojroques/nvim-lspfuzzy'}
 g['deoplete#enable_at_startup'] = 1  -- enable deoplete at startup
@@ -78,10 +82,10 @@ them and `:PaqClean` to remove unused ones.
 About the plugins:
 * [deoplete-lsp](https://github.com/Shougo/deoplete-lsp) and
   [deoplete.nvim](https://github.com/Shougo/deoplete.nvim): These plugins
-  provide autocompletion. An alternative written entirely in Lua is
-  [completion.nvim](https://github.com/nvim-lua/completion-nvim) but in my
-  opinion it doesn't compete with deoplete yet in terms of features and
-  completion sources.
+  provide autocompletion. Two popular alternatives written entirely in Lua are
+  [nvim-compe](https://github.com/hrsh7th/nvim-compe) and
+  [completion.nvim](https://github.com/nvim-lua/completion-nvim). My use of
+  deoplete here is a completely personal one.
 * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter): The
   tree-sitter is integrated to Neovim 0.5 but language modules are not. This
   plugin can configure and install them for you.
@@ -93,12 +97,15 @@ About the plugins:
   [fzf.vim](https://github.com/junegunn/fzf.vim/) and
   [lspfuzzy](https://github.com/ojroques/nvim-lspfuzzy): FZF is a very popular
   fuzzy finder and lspfuzzy is a plugin I've developed to make the Neovim LSP
-  client use FZF instead of the quickfix list. An alternative fuzzy finder
-  written in Lua is
+  client use FZF instead of the quickfix list. Again, they are personal
+  choices: the most popular fuzzy finder written in Lua is currently
   [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim).
 
 Here is how LSP and FZF interact together when looking for symbol references:
 ![LSP and FZF](https://raw.githubusercontent.com/ojroques/nvim-lspfuzzy/main/demo.gif)
+
+You can also find here a full list of plugins specifically developed for
+Neovim: [awesome-neovim](https://github.com/rockerBOO/awesome-neovim).
 
 ## Set Options
 The Neovim Lua API provide 3 tables to set options:
@@ -242,6 +249,24 @@ briefly highlights yanked text. You can enable it as an autocommand like so:
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
 ```
 
+## Additional Plugins
+I've included in the config the plugins I think are the most essential ones for
+a basic usage of Neovim. Here are some other plugins that leverage the new
+features of Neovim and that could greatly improve your workflow:
+* [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim): a replacement of
+  [vim-gitgutter](https://github.com/airblade/vim-gitgutter) in Lua.
+* [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+  (the *lua* branch): uses the
+  [new virtual text feature](https://github.com/neovim/neovim/pull/13952) to
+  display indent lines, including on empty lines.
+* [nvim-dap](https://github.com/mfussenegger/nvim-dap): implements the
+  [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/)
+  in Neovim (the equivalent of LSP for debuggers basically). Beware that it can
+  be a bit tricky to set up and that not many adapters exist yet.
+* [nvim-lightbulb](https://github.com/kosayoda/nvim-lightbulb): a simple plugin
+  to display a light bulb in the sign column whenever code actions are
+  available for the current cursor position.
+
 ## Conclusion
 Here is the complete init.lua:
 ```lua
@@ -267,10 +292,10 @@ cmd 'packadd paq-nvim'               -- load the package manager
 local paq = require('paq-nvim').paq  -- a convenient alias
 paq {'savq/paq-nvim', opt = true}    -- paq-nvim manages itself
 paq {'shougo/deoplete-lsp'}
-paq {'shougo/deoplete.nvim', hook = fn['remote#host#UpdateRemotePlugins']}
+paq {'shougo/deoplete.nvim', run = fn['remote#host#UpdateRemotePlugins']}
 paq {'nvim-treesitter/nvim-treesitter'}
 paq {'neovim/nvim-lspconfig'}
-paq {'junegunn/fzf', hook = fn['fzf#install']}
+paq {'junegunn/fzf', run = fn['fzf#install']}
 paq {'junegunn/fzf.vim'}
 paq {'ojroques/nvim-lspfuzzy'}
 g['deoplete#enable_at_startup'] = 1  -- enable deoplete at startup
