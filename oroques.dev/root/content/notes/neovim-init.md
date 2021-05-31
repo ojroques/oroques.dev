@@ -5,6 +5,8 @@ date = "2020-01-07"
 
 # Neovim 0.5 features and the switch to `init.lua`
 
+*__2021-06-01 update__: moved to vim.opt to set options, more infos on the
+tree-sitter*
 *__2021-04-18 update__: added links to nvim-compe and awesome-neovim, added a new
 section to mention other plugins.*
 
@@ -44,6 +46,7 @@ We're going to use these aliases for the rest of this post:
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
+local opt = vim.opt  -- to set options
 ```
 
 ## Plugins
@@ -108,57 +111,43 @@ You can also find here a full list of plugins specifically developed for
 Neovim: [awesome-neovim](https://github.com/rockerBOO/awesome-neovim).
 
 ## Set Options
-The Neovim Lua API provide 3 tables to set options:
-* `vim.o` for setting global options
-* `vim.bo` for setting buffer-scoped options
-* `vim.wo` for setting window-scoped options
+To set options in Lua, use the `vim.opt` table which behaves exactly like the
+`set` function in Vimscript. This table should cover most usages.
 
-Unfortunately setting an option is not as straightforward in Lua as in
-Vimscript. In Lua you need to update the global table then either the
-buffer-scoped or the window-scoped table to ensure that an option is correctly
-set. Otherwise some option like `expandtab` will only be valid for the starting
-buffer of a new Neovim instance.
+Otherwise the Neovim Lua API provides 3 tables if you need to specifically set
+an option locally (only a buffer or in a window) or globally:
+* `vim.o` to set global options: `vim.o.hidden = true`
+* `vim.bo` to set buffer-scoped options: `vim.bo.expandtab = true`
+* `vim.wo` to set window-scoped options: `vim.wo.number = true`
 
-To know which one to set, check Vim help pages. For instance for `expandtab`:
-![vim-scope](/vim-scope.png)
+To know on which scope a particular option acts on, check Vim help pages. For
+instance for `expandtab`: ![vim-scope](/vim-scope.png)
 
-Fortunately the Neovim team is working on an universal and simpler option
-interface, see [PR#13479](https://github.com/neovim/neovim/pull/13479). In the
-meantime you can use this function as a workaround:
-
+For further documentation on `vim.opt`, check the help `:h lua-vim-options`.
+Here is a list of useful settings to illustrate the use of `vim.opt` (aliased
+to `opt` here):
 ```lua
-local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
-
-local function opt(scope, key, value)
-  scopes[scope][key] = value
-  if scope ~= 'o' then scopes['o'][key] = value end
-end
-```
-
-Here is a list of recommended settings:
-```lua
-local indent = 2
-cmd 'colorscheme desert'                              -- Put your favorite colorscheme here
-opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
-opt('b', 'shiftwidth', indent)                        -- Size of an indent
-opt('b', 'smartindent', true)                         -- Insert indents automatically
-opt('b', 'tabstop', indent)                           -- Number of spaces tabs count for
-opt('o', 'completeopt', 'menuone,noinsert,noselect')  -- Completion options (for deoplete)
-opt('o', 'hidden', true)                              -- Enable modified buffers in background
-opt('o', 'ignorecase', true)                          -- Ignore case
-opt('o', 'joinspaces', false)                         -- No double spaces with join after a dot
-opt('o', 'scrolloff', 4 )                             -- Lines of context
-opt('o', 'shiftround', true)                          -- Round indent
-opt('o', 'sidescrolloff', 8 )                         -- Columns of context
-opt('o', 'smartcase', true)                           -- Don't ignore case with capitals
-opt('o', 'splitbelow', true)                          -- Put new windows below current
-opt('o', 'splitright', true)                          -- Put new windows right of current
-opt('o', 'termguicolors', true)                       -- True color support
-opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
-opt('w', 'list', true)                                -- Show some invisible characters (tabs...)
-opt('w', 'number', true)                              -- Print line number
-opt('w', 'relativenumber', true)                      -- Relative line numbers
-opt('w', 'wrap', false)                               -- Disable line wrap
+cmd 'colorscheme desert'            -- Put your favorite colorscheme here
+opt.completeopt = {'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
+opt.expandtab = true                -- Use spaces instead of tabs
+opt.hidden = true                   -- Enable background buffers
+opt.ignorecase = true               -- Ignore case
+opt.joinspaces = false              -- No double spaces with join
+opt.list = true                     -- Show some invisible characters
+opt.number = true                   -- Show line numbers
+opt.relativenumber = true           -- Relative line numbers
+opt.scrolloff = 4                   -- Lines of context
+opt.shiftround = true               -- Round indent
+opt.shiftwidth = 2                  -- Size of an indent
+opt.sidescrolloff = 8               -- Columns of context
+opt.smartcase = true                -- Do not ignore case with capitals
+opt.smartindent = true              -- Insert indents automatically
+opt.splitbelow = true               -- Put new windows below current
+opt.splitright = true               -- Put new windows right of current
+opt.tabstop = 2                     -- Number of spaces tabs count for
+opt.termguicolors = true            -- True color support
+opt.wildmode = {'list', 'longest'}  -- Command-line completion mode
+opt.wrap = false                    -- Disable line wrap
 ```
 
 ## Mappings
@@ -197,9 +186,13 @@ ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 
 Here the `maintained` value indicates that we wish to use all maintained
 languages modules. You also need to set highlight to `true` otherwise the plugin
-will be disabled. Check the
-[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-documentation for more options.
+will be disabled. The full documentation can be found on the [Github
+page](https://github.com/nvim-treesitter/nvim-treesitter).
+
+Highlighting is not the only module available: you can also enable the `indent`
+module which provides indentation based on the filetype and context. More
+details on the available modules
+[here](https://github.com/nvim-treesitter/nvim-treesitter#available-modules).
 
 ## Configuring the LSP Client
 Thanks to the `lspconfig` plugin, configuring the LSP client is relatively easy:
@@ -263,6 +256,9 @@ features of Neovim and that could greatly improve your workflow:
   [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/)
   in Neovim (the equivalent of LSP for debuggers basically). Beware that it can
   be a bit tricky to set up and that not many adapters exist yet.
+* [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects):
+  a plugin to create text objects based on the treesitter engine, to select
+  parameters / functions for instance or to swap code elements.
 * [nvim-lightbulb](https://github.com/kosayoda/nvim-lightbulb): a simple plugin
   to display a light bulb in the sign column whenever code actions are
   available for the current cursor position.
@@ -274,12 +270,7 @@ Here is the complete init.lua:
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
-local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
-
-local function opt(scope, key, value)
-  scopes[scope][key] = value
-  if scope ~= 'o' then scopes['o'][key] = value end
-end
+local opt = vim.opt  -- to set options
 
 local function map(mode, lhs, rhs, opts)
   local options = {noremap = true}
@@ -301,28 +292,27 @@ paq {'ojroques/nvim-lspfuzzy'}
 g['deoplete#enable_at_startup'] = 1  -- enable deoplete at startup
 
 -------------------- OPTIONS -------------------------------
-local indent = 4
-cmd 'colorscheme desert'                              -- Put your favorite colorscheme here
-opt('b', 'expandtab', true)                           -- Use spaces instead of tabs
-opt('b', 'shiftwidth', indent)                        -- Size of an indent
-opt('b', 'smartindent', true)                         -- Insert indents automatically
-opt('b', 'tabstop', indent)                           -- Number of spaces tabs count for
-opt('o', 'completeopt', 'menuone,noinsert,noselect')  -- Completion options (for deoplete)
-opt('o', 'hidden', true)                              -- Enable modified buffers in background
-opt('o', 'ignorecase', true)                          -- Ignore case
-opt('o', 'joinspaces', false)                         -- No double spaces with join after a dot
-opt('o', 'scrolloff', 4 )                             -- Lines of context
-opt('o', 'shiftround', true)                          -- Round indent
-opt('o', 'sidescrolloff', 8 )                         -- Columns of context
-opt('o', 'smartcase', true)                           -- Don't ignore case with capitals
-opt('o', 'splitbelow', true)                          -- Put new windows below current
-opt('o', 'splitright', true)                          -- Put new windows right of current
-opt('o', 'termguicolors', true)                       -- True color support
-opt('o', 'wildmode', 'list:longest')                  -- Command-line completion mode
-opt('w', 'list', true)                                -- Show some invisible characters (tabs...)
-opt('w', 'number', true)                              -- Print line number
-opt('w', 'relativenumber', true)                      -- Relative line numbers
-opt('w', 'wrap', false)                               -- Disable line wrap
+cmd 'colorscheme desert'            -- Put your favorite colorscheme here
+opt.completeopt = {'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
+opt.expandtab = true                -- Use spaces instead of tabs
+opt.hidden = true                   -- Enable background buffers
+opt.ignorecase = true               -- Ignore case
+opt.joinspaces = false              -- No double spaces with join
+opt.list = true                     -- Show some invisible characters
+opt.number = true                   -- Show line numbers
+opt.relativenumber = true           -- Relative line numbers
+opt.scrolloff = 4                   -- Lines of context
+opt.shiftround = true               -- Round indent
+opt.shiftwidth = 2                  -- Size of an indent
+opt.sidescrolloff = 8               -- Columns of context
+opt.smartcase = true                -- Do not ignore case with capitals
+opt.smartindent = true              -- Insert indents automatically
+opt.splitbelow = true               -- Put new windows below current
+opt.splitright = true               -- Put new windows right of current
+opt.tabstop = 2                     -- Number of spaces tabs count for
+opt.termguicolors = true            -- True color support
+opt.wildmode = {'list', 'longest'}  -- Command-line completion mode
+opt.wrap = false                    -- Disable line wrap
 
 -------------------- MAPPINGS ------------------------------
 map('', '<leader>c', '"+y')       -- Copy to clipboard in normal, visual, select and operator modes
