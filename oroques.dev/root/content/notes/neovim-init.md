@@ -5,13 +5,14 @@ date = "2020-01-07"
 
 # Neovim 0.5 features and the switch to `init.lua`
 
-*__2021-06-01 update__: moved to vim.opt to set options, more infos on the
+- *__2021-07-02 update__: Neovim 0.5 has been released!*
+- *__2021-06-01 update__: moved to vim.opt to set options, more infos on the
 tree-sitter*
-*__2021-04-18 update__: added links to nvim-compe and awesome-neovim, added a new
+- *__2021-04-18 update__: added links to nvim-compe and awesome-neovim, added a new
 section to mention other plugins.*
 
-Neovim 0.5 will soon be released with some major additions. The main features
-this new version will ship with are:
+Neovim 0.5 ships with some major additions. The main features this new version
+introduces are:
 * A built-in [LSP](https://microsoft.github.io/language-server-protocol/)
   client.
 * A [tree-sitter](https://tree-sitter.github.io/tree-sitter/) for better syntax
@@ -248,10 +249,9 @@ a basic usage of Neovim. Here are some other plugins that leverage the new
 features of Neovim and that could greatly improve your workflow:
 * [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim): a replacement of
   [vim-gitgutter](https://github.com/airblade/vim-gitgutter) in Lua.
-* [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-  (the *lua* branch): uses the
-  [new virtual text feature](https://github.com/neovim/neovim/pull/13952) to
-  display indent lines, including on empty lines.
+* [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim):
+  uses the [new virtual text feature](https://github.com/neovim/neovim/pull/13952)
+  to display indent lines, including on empty lines.
 * [nvim-dap](https://github.com/mfussenegger/nvim-dap): implements the
   [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/)
   in Neovim (the equivalent of LSP for debuggers basically). Beware that it can
