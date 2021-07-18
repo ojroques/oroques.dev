@@ -5,6 +5,7 @@ date = "2020-01-07"
 
 # Neovim 0.5 features and the switch to `init.lua`
 
+- *__2021-07-18 update__: replace pyls with pylsp*
 - *__2021-07-02 update__: Neovim 0.5 has been released!*
 - *__2021-06-01 update__: moved to vim.opt to set options, more infos on the
 tree-sitter*
@@ -205,17 +206,16 @@ Thanks to the `lspconfig` plugin, configuring the LSP client is relatively easy:
   advanced configuration.
 
 Here is an example of configuration which sets up the servers for Python and
-C/C++ (respectively [pyls](https://github.com/palantir/python-language-server)
+C/C++ (respectively [pylsp](https://github.com/python-lsp/python-lsp-server)
 and [ccls](https://github.com/MaskRay/ccls), assuming they're already
 installed). We also create mappings for the most useful LSP commands.
 ```lua
 local lsp = require 'lspconfig'
 local lspfuzzy = require 'lspfuzzy'
 
--- For ccls we use the default settings
+-- We use the default settings for ccls and pylsp: the option table can stay empty
 lsp.ccls.setup {}
--- root_dir is where the LSP server will start: here at the project root otherwise in current folder
-lsp.pyls.setup {root_dir = lsp.util.root_pattern('.git', fn.getcwd())}
+lsp.pylsp.setup {}
 lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
 
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
@@ -334,10 +334,9 @@ ts.setup {ensure_installed = 'maintained', highlight = {enable = true}}
 local lsp = require 'lspconfig'
 local lspfuzzy = require 'lspfuzzy'
 
--- For ccls we use the default settings
+-- We use the default settings for ccls and pylsp: the option table can stay empty
 lsp.ccls.setup {}
--- root_dir is where the LSP server will start: here at the project root otherwise in current folder
-lsp.pyls.setup {root_dir = lsp.util.root_pattern('.git', fn.getcwd())}
+lsp.pylsp.setup {}
 lspfuzzy.setup {}  -- Make the LSP client use FZF instead of the quickfix list
 
 map('n', '<space>,', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
